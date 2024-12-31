@@ -18,7 +18,7 @@ class AuthController {
       username: req.body.username,
       password: req.body.password,
     });
-    const respponse = await user.save();
+    const response = await user.save();
     console.log("saved response", response);
     res.status(200).json({ message: "register successful" });
   }

@@ -1,10 +1,12 @@
 import { Router } from "express";
-import authRoutes from "./authRoutes"
-import userRoutes from "./userRoutes"
+import { authMiddleware } from "../middleware/authMiddleware";
+import authRoutes from "./authRoutes";
+import userRoutes from "./userRoutes";
+import movieRoutes from "./movieRoutes";
+const router = Router();
 
-const router = Router()
+router.use("/auth", authRoutes);
+router.use("/user", userRoutes);
+router.use("/movies", authMiddleware, movieRoutes);
 
-router.use("/auth",authRoutes)
-router.use("/user",userRoutes)
-
-export default router
+export default router;
