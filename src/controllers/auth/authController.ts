@@ -119,7 +119,7 @@ class AuthController {
       }
     } catch (error: any) {
       if (error?.name === "TokenExpiredError") {
-        res.status(401).json({ message: "Access Token Expired" });
+        res.status(401).json({ message: "Refresh Token Expired" });
       } else {
         res.status(400).json(error);
       }
